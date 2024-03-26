@@ -9,7 +9,7 @@
 /**
  *  Formats de structure - structure qui stocke différents formats
  *  _printf peut imprimer et leur fonction respective
- *  definir type args dans le char 
+ *  definir type args dans le char
  *  @f: la fonction qui imprimera le type associé
 */
 typedef struct formats
