@@ -12,7 +12,7 @@
  *  definir type args dans le char
  *  @f: la fonction qui imprimera le type associé
 */
-typedef struct formats
+typedef struct format_types
 {
 	char type arg;
 	int (*f)(va_list args);
@@ -20,5 +20,6 @@ typedef struct formats
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-
+int _print_char(va_list args);
+int _print_modulo(va_list args);
 #endif
