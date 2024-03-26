@@ -1,5 +1,5 @@
-#ifndef _MAIN.H_
-#define _MAIN.H_
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,19 +7,20 @@
 #include <stdarg.h>
 
 /**
- *  Formats de structure - structure qui stocke différents formats
- *  _printf peut imprimer et leur fonction respective
- *  definir type args dans le char
+ *  Formats de structure - structure qui stocke different types
+ *  que _printf peut imprimer et leur fonction respective
+ *  Define type and args in separate lines
+ *  @type: le type du format (ex: 'c', 's')
  *  @f: la fonction qui imprimera le type associé
-*/
-typedef struct format_types
+ */
+typedef struct formats
 {
-	char arg;
+	char type;
 	int (*f)(va_list args);
 } format_t;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int _print_char(va_list args);
-int _print_modulo(va_list args);
+
 #endif
+

@@ -3,11 +3,11 @@
 #include "main.h"
 int _printf(const char *format, ...)
 {
+	int i;
 	int count = 0;
 	va_list args;
 	va_start(args, format);
-
-	for (int i = 0; format[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
