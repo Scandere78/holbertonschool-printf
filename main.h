@@ -14,7 +14,7 @@
 */
 typedef struct format_types
 {
-	char type arg;
+	char arg;
 	int (*f)(va_list args);
 } format_t;
 
