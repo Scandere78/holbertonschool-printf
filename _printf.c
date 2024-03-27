@@ -1,80 +1,59 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdarg.h>
-#include <stddef.h>
-int (*get_format_function(char c2))(va_list);
-/**
- * _printf - ...
- * @format: String to print and to formated
- * Return: (int)
- */
 
+/**
+ * Prints a formatted string to standard output.
+ * Supported conversion specifiers: 'c', 's', '%'.
+ *
+ * @param format The format string.
+ * @param ... Optional arguments corresponding to the format.
+ *
+ * @return The number of characters printed (excluding the null byte used to end output to strings).
+ */
 int _printf(const char *format, ...)
 {
-	int i = 0, ii, inc, count = 0;
-	char c1, c2;
-	va_list args;
+        int i;
+        int count = 0;
+        va_list args;
+        va_start(args, format);
 
-	va_start(args, format);
-	while (format[i] != '\0')
-	{
-		int printed = 0;
+        for (i = 0; format[i] != '\0'; i++)
+        {
+                if (format[i] != '%')
+                {
+                        putchar(format[i]);
+                        count++;
+                }
+                else
+                {
+                        i++;
+                        if (format[i] == 'c')
+                        {
+                                int c = va_arg(args, int);
+                                putchar(c);
+                                count++;
+                        }
+                        else if (format[i] == 's')
+                        {
+                                char *s = va_arg(args, char *);
+                                count += puts(s);
+                        }
+                        else if (format[i] == '%')
+                        {
+                                putchar('%');
+                                count++;
+                        }
+                        else
+                        {
+                                putchar('%');
+                                putchar(format[i]);
+                                count += 2;
+                        }
+                }
+        }
 
-		c1 = format[i];
-		inc = 1;
+        va_end(args);
 
-		if (c1 == '%')
-		{
-			c2 = format[i + 1];
-			if (c2 == '\0')
-			{
-				va_end(args);
-				return (-1);
-			}
-			for (ii = 0; ii < 6; ii++)
-			{
-				if (get_format_function (c2))
-				{
-					count += ftypes[ii].f(args);
-					inc = 2;
-					printed = 1;
-					break;
-				}
-			}
-		}
-		if (printed == 0)
-		{
-			count += 1;
-			_putchar(c1);
-		}
-		i += inc;
-	}
-	va_end(args);
-	return (count);
-}
-
-/**
- * gettypes - function to return the array of structures
- * Return: specifiers
- */
-int (*get_format_function(char c2))(va_list)
-{
-	int ii;
-
-	format_t ftypes[] = 
-	{
-		{"c", _print_char},
-		{"s", _print_string},
-		{"i", _print_integer},
-		{"d", _print_integer},
-		{"%", _print_perc},
-		{"u", _print_unsigned_integer},
-		{NULL, NULL}
-	};
-	for (ii = 0; ii < 6; ii++)
-	{
-		if (ftypes[ii].op[0] == c2)
-		{
-			return (ftypes[ii].f);
-		}
-	}
+        return count;
 }
