@@ -25,5 +25,6 @@ int _print_char(va_list args);
 int _print_modulo(va_list args);
 int print_string(va_list args);
 int process_format(const char *format, va_list args);
+int _print_decimal_recursive(int num);
 #endif
 

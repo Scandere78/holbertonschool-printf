@@ -5,10 +5,13 @@
  * @args - arguments
  * Return - count
  */
-int process_format(const char *format, va_list args)
+int _printf(const char *format, ...)
 {
 	int i;
 	int count = 0;
+	va_list args;
+	va_start(args, format);
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
@@ -31,6 +34,10 @@ int process_format(const char *format, va_list args)
 			{
 				count += _print_modulo(args);
 			}
+			else if (format[i] == 'd' || format[i] == 'i')
+			{
+				count += _print_decimal(args);
+			}
 			else
 			{
 				_putchar('%');
@@ -39,5 +46,6 @@ int process_format(const char *format, va_list args)
 			}
 		}
 	}
-	return (count);
+	va_end(args);
+	return count;
 }
