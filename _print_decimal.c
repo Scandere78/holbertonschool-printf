@@ -11,6 +11,6 @@
 int _print_decimal(va_list args)
 {
 	int i = va_arg(args,int);
-	int r = _print_decimal_recurcive(i);
+	int r = _print_decimal_recursive(i);
         return (r);
 }
