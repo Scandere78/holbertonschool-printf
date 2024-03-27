@@ -1,4 +1,10 @@
 #include "main.h"
+/*
+ * process_format - definir le  format attribuer
+ * @format - format types
+ * @args - arguments
+ * Return - count
+ */
 int process_format(const char *format, va_list args)
 {
 	int i;
