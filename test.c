@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 'd' || format[i] == 'i')
 			{
-				count += _print_decimal(args);
+				count += _print_decimal_recursive(args);
 			}
 			else
 			{
