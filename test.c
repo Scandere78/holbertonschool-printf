@@ -1,17 +1,13 @@
-include "main.h"
-#include <unistd.h>
-#include <stdarg.h>
-
+#include "main.h"
 int process_format(const char *format, va_list args)
 {
 	int i;
 	int count = 0;
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
-			putchar(format[i]);
+			_putchar(format[i]);
 			count++;
 		}
 		else
@@ -31,13 +27,11 @@ int process_format(const char *format, va_list args)
 			}
 			else
 			{
-				putchar('%');
-				putchar(format[i]);
+				_putchar('%');
+				_putchar(format[i]);
 				count += 2;
 			}
 		}
 	}
-
-	return count;
+	return (count);
 }
-
