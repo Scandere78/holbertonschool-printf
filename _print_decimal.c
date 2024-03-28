@@ -11,6 +11,17 @@
 int _print_decimal(va_list args)
 {
 	int i = va_arg(args,int);
-	int r = _print_decimal_recursive(i);
+	int r = 0;
+
+	if ( i < 0)
+	{
+		_putchar('-');
+		i = -i;
+		r++;
+	}
+
+	r += _print_decimal_recursive(i);
+
+
         return (r);
 }
