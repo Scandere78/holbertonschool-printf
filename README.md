@@ -11,11 +11,11 @@ We dissect the function in 5 subfunctions:
 - int _print_modulo(va_list args) print a percentage sign 
 - int print_string(va_list args) print a string 
 - int _print_decimal_recursive(int num) is connect with a second under function int _print_decimal(va_list args) thats print an integer and number
-- c: Print a character
-- s: Print a string
-- %: Print the character '%'
-- d: Print a number
-- i: Print an integer
+- %c: Print a character
+- %s: Print a string
+- %%: Print the character '%'
+- %d: Print a number
+- %i: Print an integer
 ------------------------------------------------
 ## Compilation Command 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
