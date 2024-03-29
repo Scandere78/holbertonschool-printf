@@ -25,6 +25,10 @@ Editor: VI All files will be compiled on Ubuntu 20.04 LTS. A README.md file, at 
 _printf("Hello World")
 
 stdout: Hello World
+
+## Flowchart
+![Flowchart](https://raw.githubusercontent.com/Scandere78/holbertonschool-printf/main/Flowchart.png.png)
+
 ## Authors
 Scandere
 Youssoup
