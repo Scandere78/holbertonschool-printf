@@ -20,7 +20,8 @@ We dissect the function in 5 subfunctions:
 ## Compilation Command 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ## Requirements 
-Editor: VI All files will be compiled on Ubuntu 20.04 LTS. A README.md file, at the root of the folder of the project is mandatory. Code is using the Betty syle. Global variables is not allowed. Cannot use more than 5 functions per file. Prototypes of all functions should be included in a header file called main.h.
+Ubuntu 20.04 LTS
+GCC Language standard gnu89
 ## Example
 _printf("Hello World")
 
